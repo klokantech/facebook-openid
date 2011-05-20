@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head %}
+	<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'c86e7495-cfd9-41f5-a486-bd6940531807'});</script>
+{% endblock %}
+
 {% block body %}
 
 <h2>Login with your Facebook account into any OpenID site</h2>
@@ -26,6 +30,14 @@ This service allows you to use your Facebook account to log into any site which 
 
 {% endif %}
 </p>
+
+<p>&nbsp;</p>
+
+<div style="width:350px; text-align:right; float:right;">
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8" style="position:relative; top:-20px;"><img src="/static/btn_donate.gif" alt="Donate on PayPal"/></a><br/>
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8"><b>If you use this service PLEASE DONATE<br/> Otherwise we can't keep it running and improve it...</b></a>
+</div>
+
 
 <div class="top">
   <div class="left"></div>
@@ -78,6 +90,11 @@ This service allows you to use your Facebook account to log into any site which 
 <div class="left"></div>
 <div class="right"></div>
 
+</div>
+
+
+<div style="text-align:right">
+<span class='st_facebook_hcount' displayText='Facebook'></span><span  class='st_twitter_hcount' displayText='Tweet'></span><span  class='st_email_hcount' displayText='Email'></span>
 </div>
 
 {% endblock %}
