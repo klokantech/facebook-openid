@@ -7,6 +7,11 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /(robots.txt|favicon.ico)
+  static_files: static/\1
+  upload: static/(robots.txt|favicon.ico)
+  secure: optional
+
 - url: /facebook.*
   script: facebookoauth.py
 
