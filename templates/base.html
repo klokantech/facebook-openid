@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>OpenID Provider for Facebook (unofficial)</title>
+	<style type="text/css" media="screen">
+		html, body {
+		margin:0; border:0; padding:0;
+		}
+		body {
+		font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+		font-size: 11px;
+		color: #333;
+		text-align: left;
+		direction: ltr;
+		}
+		h1 { margin:0; padding:0;}
+		#blueBar {
+		background-color: #3B5998;
+		height: 41px;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+		}
+		#pageHead {
+		margin: 0 auto;
+		width: 980px;
+		}
+		#pageLogo a {
+		position:absolute; top:10px;
+		background-image: url(http://static.ak.fbcdn.net/rsrc.php/v1/zK/r/NGGPJRdOdhs.png);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-color: #3B5998;
+		display: block;
+		height: 31px;
+		width: 103px;
+		}
+		#pageNav {
+		background-color: #627AAD;
+		border: 1px solid #1D4088;
+		border-bottom: 0;
+		float:right;
+		margin-top:10px;
+		height: 30px;
+		margin-left: 180px;
+		}
+		#pageNav a {
+		color: white;
+		display: block;
+		display: inline-block;
+		font-weight: bold;
+		height: 22px;
+		padding: 8px 10px 0 10px;
+		text-decoration: none;
+		}
+		.UIFullPage_Container {
+		width: 940px;
+		padding: 0 12px;
+		margin: 20px auto 0;
+		}
+		h2 {
+		color: #1C2A47;
+		font-size: 16px;
+		}
+		
+		#pageFooter {
+		color: #737373;
+		font-size: 11px;
+		margin: 25px auto;
+		width: 980px;
+		}
+		#footerContainer {
+		border-top: 1px solid #EEE;
+		margin-bottom: 30px;
+		padding: 8px;
+		position: relative;
+		}
+		.clearfix {
+		display: block;
+		zoom: 1;
+		}
+		.url {
+			font-weight: bold;
+			color:#F16800;
+		}
+	</style>
+	<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'c86e7495-cfd9-41f5-a486-bd6940531807'});</script>
+	{% block head %}{% endblock %}
+</head>
+<body {% block bodyattributes %}{% endblock %}>
+<div id="blueBar"><div id="pageHead">
+	<h1 id="pageLogo"><a href="http://www.facebook.com/?ref=logo"></a></h1>
+	<div id="pageNav">
+  {% if user %}
+    <a href="http://www.facebook.com/{{ user.nickname }}" class="nickname">{{ user.nickname }}</a> |
+  {% endif %}
+  {% if user %}
+    <a href="{{ logout_url|escape }}">Log out</a>
+  {% else %}
+    <a href="{{ login_url|escape }}">Log in</a>
+  {% endif %}
+</div>
+</div></div>
+	
+<div id="content" class="fb_content clearfix">
+<div class="UIFullPage_Container">
+
+<img src="/static/openid-logo-wordmark.png" style="float:right" alt=""/>
+
+{% block body %}{% endblock %}
+
+
+<div style="text-align:right">
+<span class='st_facebook_hcount' displayText='Facebook'></span><span  class='st_twitter_hcount' displayText='Tweet'></span><span  class='st_email_hcount' displayText='Email'></span>
+</div>
+
+</div>
+</div>
+
+<div id="pageFooter">
+   <div class="clearfix" id="footerContainer">Unofficial OpenID Provider for Facebook Accounts
+   <div style="float:right; text-align:right;">Made by <a href="http://www.mzk.cz/">Moravian Library</a> and <a href="http://www.klokantech.com/">Klokan Technologies GmbH</a>.<br><a href="http://www.github.com/klokantech/facebook-openid/">Source code at GitHub</a>.
+	</div>
+</div>
+
+<p style="text-align:center">
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8" style="position:relative; top:-20px;"><img src="/static/btn_donate.gif" alt="Donate on PayPal"/></a><br/>
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8"><b>IF YOU USE THIS SERVICE OR OUR SOURCE CODE PLEASE DONATE!!!<br/> OTHERWISE WE CAN'T KEEP IT RUNNING AND IMPROVE IT IN THE FUTURE...</b></a>
+</p>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8073932-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

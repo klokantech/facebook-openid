@@ -1,0 +1,21 @@
+Copyright (C) 2011 Klokan Technologies GmbH
+
+Facebook OpenID Provider
+========================
+
+http://facebook-openid.appspot.com/
+
+An OpenID Provider app which allows Facebook users to log into
+any OpenID site using their Facebook account.
+
+Google AppEngine Federated Login is supported too.
+
+Based on http://openid-provider.appspot.com/ sources, ported to latest
+python-openid library (included) by the project:
+http://appengine-openid-provider.googlecode.com/
+
+Uses Facebook Platform Python SDK: https://github.com/facebook/python-sdk
+
+For more about OpenID, see:
+  http://openid.net/
+  http://openid.net/about.bml
