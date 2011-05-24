@@ -61,10 +61,11 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from hashlib import md5
 
-from facebookoauth import BaseHandler
+from facebookoauth import BaseHandler, set_cookie
 
 from openid.server import server as OpenIDServer
 import store
+import time
 
 
 # Set to True if stack traces should be shown in the browser, etc.
@@ -379,6 +380,7 @@ class Login(Handler):
         logging.debug('Has cookie, confirming identity to ' +
                       oidrequest.trust_root)
         self.store_login(oidrequest, 'remembered')
+        set_cookie(self.response, "fb_user", "", expires=time.time() - 86400)
         self.Respond(oidrequest.answer(True, identity = get_identity_url(self.request, self.get_current_user())))
       elif oidrequest.immediate:
         self.store_login(oidrequest, 'declined')
@@ -436,6 +438,7 @@ class FinishLogin(Handler):
           'Set-Cookie', 'openid_remembered_%s=yes; expires=%s' % (digest(oidrequest.trust_root),expires_rfc822))
 
       self.store_login(oidrequest, 'confirmed')
+      set_cookie(self.response, "fb_user", "", expires=time.time() - 86400)
       answer = oidrequest.answer(True, identity = get_identity_url(self.request, self.get_current_user()))
       logging.info('answer:%s',answer)
       self.Respond(answer)
